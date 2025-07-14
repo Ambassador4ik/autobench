@@ -4,6 +4,7 @@ version = "1.0-SNAPSHOT"
 plugins {
     application
     java
+    id("com.gradleup.shadow") version "9.0.0-rc1"
 }
 
 java {
@@ -35,4 +36,9 @@ dependencies {
 
 application {
     mainClass.set("me.crymath.autobench.runner.BenchmarkRunner")
+}
+
+tasks.shadowJar {
+    archiveBaseName.set("autobench")   // produces autobench.jar
+    archiveClassifier.set("")          // remove “-all” suffix
 }
