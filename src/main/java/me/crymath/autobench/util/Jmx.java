@@ -9,16 +9,6 @@ import javax.management.remote.JMXServiceURL;
 import java.lang.management.ManagementFactory;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Tiny helper for one-shot JMX reads.  Works against *local* JVM
- * (the benchmark process) or a remote broker if you set
- * jmxHost/jmxPort System-properties or env-vars.
- *
- *   ./gradlew run -DjmxHost=broker1 -DjmxPort=9999
- *
- * If remote connection fails we silently fall back to the current VM
- * so the suite still runs.
- */
 public final class Jmx {
 
     private static final MBeanServerConnection CONN = connect();
